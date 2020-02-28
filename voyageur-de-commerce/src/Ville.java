@@ -1,4 +1,4 @@
-//reprÃ©sente une ville
+//représente une ville
 public class Ville {
 	//position de la ville
 	double x, y;
@@ -7,5 +7,9 @@ public class Ville {
 		super();
 		this.x = x;
 		this.y = y;
+	}
+	
+	public String toString() {
+		return x+" "+y;
 	}
 }
