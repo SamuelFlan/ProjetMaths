@@ -14,6 +14,7 @@ public class Main {
 		InOut i = new InOut();
 		ArrayList<Ville> villes = i.LireVillesDeFichier("jeu-essai/20.in3");
 		Solution solution = Heuristique.ParAjoutDuPlusProche(villes);
+		solution = Locales.Descente(solution.parcours);
 		i.EcrireSolutionDansFichier(solution, "jeu-essai/20.out3");
 	}
 	
