@@ -39,7 +39,7 @@ public class InOut {
 	            writer.write(Integer.toString(solution.parcours.size()));
 	            //la longueur du parcours
 	            writer.newLine();
-	            writer.write(Double.toString(solution.longueur));
+	            writer.write(Double.toString(solution.getLongueur()));
 	            //et les coordonn�es des villes du parcours
 	            for(Ville ville : solution.parcours) {
 	            	writer.newLine();

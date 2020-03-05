@@ -15,15 +15,10 @@ public class Heuristique {
 			Ville villeLaPlusProche = TrouverVilleLaPlusProche(villes, parcours.get(i-1));
 			//on la retire de la liste des villes
 			villes.remove(villeLaPlusProche);
-			//on ajoute la distance entre les deux villes à la longueur
-			//System.out.println(CalculerDistance(villeLaPlusProche, parcours.get(i-1)));
-			longueur += Ville.CalculerDistance(villeLaPlusProche, parcours.get(i-1));
 			//on l'ajoute au parcours
 			parcours.add(villeLaPlusProche);
 		}
-		//on ajoute la longueur entre la dernière et la première ville du parcours
-		longueur += Ville.CalculerDistance(parcours.get(parcours.size() - 1), parcours.get(0));
-		return new Solution(parcours, longueur);
+		return new Solution(parcours);
 	}
 	
 	//Trouve la ville la plus proche de la ville passée en paramètre dans une liste
