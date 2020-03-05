@@ -1,4 +1,4 @@
-//représente une ville
+//reprï¿½sente une ville
 public class Ville {
 	//position de la ville
 	double x, y;
@@ -11,5 +11,10 @@ public class Ville {
 	
 	public String toString() {
 		return x+" "+y;
+	}
+	
+	//retourne la distance euclidienne entre deux villes
+	public static double CalculerDistance(Ville a, Ville b) {
+		return Math.sqrt(Math.pow((b.x-a.x),2)+Math.pow((b.y-a.y),2));
 	}
 }
