@@ -8,6 +8,24 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class InOut {
+	// Retourne le nombre de villes du fichier <nomFichier>
+	public static int nbVillesFichier(String nomFichier){
+		
+		int nbVilles = 0 ;
+	    try {
+	        File fichier = new File(nomFichier);
+	        Scanner scanner = new Scanner(fichier).useLocale(Locale.US);
+	        
+	        nbVilles = scanner.nextInt();
+	        scanner.close();
+	      } catch (FileNotFoundException e) {
+	        System.out.println("Fichier "+nomFichier+" non trouvé");
+	        e.printStackTrace();
+	      }
+        return nbVilles;
+	}
+	
+	
 	//retourne la liste du fichier <nomFichier>
 		public static ArrayList<Ville> LireVillesDeFichier(String nomFichier){
 	    	ArrayList<Ville> villes = new ArrayList<Ville>();
@@ -25,7 +43,7 @@ public class InOut {
 		        }
 		        scanner.close();
 		      } catch (FileNotFoundException e) {
-		        System.out.println("Fichier "+nomFichier+" non trouvÃ©");
+		        System.out.println("Fichier "+nomFichier+" non trouvé");
 		        e.printStackTrace();
 		      }
 	        return villes;
