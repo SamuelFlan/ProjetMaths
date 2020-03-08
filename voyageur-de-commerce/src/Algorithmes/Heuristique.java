@@ -1,4 +1,8 @@
+package Algorithmes;
 import java.util.ArrayList;
+
+import utilitaires.Solution;
+import utilitaires.Ville;
 
 //alorithmes gloutons
 public class Heuristique {

@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.util.Collections;
 
+import utilitaires.Solution;
+import utilitaires.Ville;
+
 //métodes locales (utilise les tournées voisine)
 public class Locales {
 	//algorithme de descente locale

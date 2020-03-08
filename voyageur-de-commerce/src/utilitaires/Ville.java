@@ -1,3 +1,4 @@
+package utilitaires;
 //repr�sente une ville
 public class Ville {
 	//position de la ville
@@ -12,6 +13,9 @@ public class Ville {
 	public String toString() {
 		return x+" "+y;
 	}
+	
+	public double getX() { return x; }
+	public double getY() { return y; }
 	
 	//retourne la distance euclidienne entre deux villes
 	public static double CalculerDistance(Ville a, Ville b) {

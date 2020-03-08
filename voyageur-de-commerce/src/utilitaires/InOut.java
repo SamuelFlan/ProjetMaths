@@ -1,3 +1,4 @@
+package utilitaires;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -54,12 +55,12 @@ public class InOut {
 	        try {
 	        	BufferedWriter writer = new BufferedWriter(new FileWriter(nomFichier));
 	            //on �crit le nombre de ville
-	            writer.write(Integer.toString(solution.parcours.size()));
+	            writer.write(Integer.toString(solution.getParcours().size()));
 	            //la longueur du parcours
 	            writer.newLine();
 	            writer.write(Double.toString(solution.getLongueur()));
 	            //et les coordonn�es des villes du parcours
-	            for(Ville ville : solution.parcours) {
+	            for(Ville ville : solution.getParcours()) {
 	            	writer.newLine();
 	            	writer.write(ville.toString());
 	            }
