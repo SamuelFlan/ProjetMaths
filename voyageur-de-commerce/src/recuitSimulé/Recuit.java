@@ -28,38 +28,42 @@ public class Recuit {
         Voyage best = new Voyage(currentSolution.getVoyage());
         
         // Loop until system has cooled
-        while (temp > 1) {
-            // Create new neighbor tour
-            Voyage newSolution = new Voyage(currentSolution.getVoyage());
+        for (int n = 0; n < i; n++) {
+        	if (temp > 1) {
+        		{
+                    // Create new neighbor tour
+                    Voyage newSolution = new Voyage(currentSolution.getVoyage());
 
-            // Get a random positions in the tour
-            int tourPos1 = (int) (newSolution.voyageSize() * Math.random());
-            int tourPos2 = (int) (newSolution.voyageSize() * Math.random());
+                    // Get a random positions in the tour
+                    int tourPos1 = (int) (newSolution.voyageSize() * Math.random());
+                    int tourPos2 = (int) (newSolution.voyageSize() * Math.random());
 
-            // Get the cities at selected positions in the tour
-            Ville citySwap1 = newSolution.getCity(tourPos1);
-            Ville citySwap2 = newSolution.getCity(tourPos2);
+                    // Get the cities at selected positions in the tour
+                    Ville citySwap1 = newSolution.getCity(tourPos1);
+                    Ville citySwap2 = newSolution.getCity(tourPos2);
 
-            // Swap them
-            newSolution.setCity(tourPos2, citySwap1);
-            newSolution.setCity(tourPos1, citySwap2);
-            
-            // Get energy of solutions
-            int currentEnergy = currentSolution.getDistance();
-            int neighbourEnergy = newSolution.getDistance();
+                    // Swap them
+                    newSolution.setCity(tourPos2, citySwap1);
+                    newSolution.setCity(tourPos1, citySwap2);
+                    
+                    // Get energy of solutions
+                    int currentEnergy = currentSolution.getDistance();
+                    int neighbourEnergy = newSolution.getDistance();
 
-            // Decide if we should accept the neighbour
-            if (acceptanceProbability(currentEnergy, neighbourEnergy, temp) > Math.random()) {
-                currentSolution = new Voyage(newSolution.getVoyage());
-            }
+                    // Decide if we should accept the neighbour
+                    if (acceptanceProbability(currentEnergy, neighbourEnergy, temp) > Math.random()) {
+                        currentSolution = new Voyage(newSolution.getVoyage());
+                    }
 
-            // Keep track of the best solution found
-            if (currentSolution.getDistance() < best.getDistance()) {
-                best = new Voyage(currentSolution.getVoyage());
-            }
-            
-            // Cool system
-            temp *= 1-refroidissement;
+                    // Keep track of the best solution found
+                    if (currentSolution.getDistance() < best.getDistance()) {
+                        best = new Voyage(currentSolution.getVoyage());
+                    }
+                    
+                    // Cool system
+                    temp *= 1-refroidissement;
+                }
+        	}
         }
 
         System.out.println("Final solution distance: " + best.getDistance());
