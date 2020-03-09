@@ -1,5 +1,7 @@
 package recuitSimulé;
 import java.util.ArrayList;
+
+import utilitaires.Solution;
 import utilitaires.Utility;
 
 import utilitaires.Ville;
@@ -14,8 +16,8 @@ public class Recuit {
 		return Math.exp((energy - newEnergy) / temperature);
 	}
 
-	public static void recuitSimulé(ArrayList<Ville> voy, double temp, double refroidissement, int i) {
-
+	public static Solution recuitSimulé(ArrayList<Ville> voy, double temp, double refroidissement, int i) {
+		Solution s;
 		Voyage currentSolution = new Voyage(voy);
 
 		// Initialize intial solution
@@ -67,9 +69,18 @@ public class Recuit {
 					temp *= 1 - refroidissement;
 				}
 
-				System.out.println("Final solution distance: " + best.getTotalDistance());
-				System.out.println("Tour: " + best);
+				
+				
 			}
 		}
+		
+		s = new Solution(best.getVoyage());
+		
+		System.out.println("Final solution distance: " + best.getTotalDistance());
+		System.out.println("Tour: " + best);
+		
+		return s;
+		
 	}
+	
 }
