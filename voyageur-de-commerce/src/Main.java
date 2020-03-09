@@ -27,7 +27,7 @@ public class Main {
 	    			// Nombre itérations
 	    			String intValue = fich.replaceAll("[^0-9]", "");
 	    			int nbIt = Integer.parseInt(intValue);
-	    			sol = rec.recuitSimulé(villes, 7, 0.0000001, nbIt * 10000000);
+	    			sol = rec.recuitSimulé(villes, 999999997, 0.00000001, nbIt * 10000000);
 	    			break;
 	    		case 'h': // Heuristique
 	    			sol = Heuristique.ParAjoutDuPlusProche(villes);
