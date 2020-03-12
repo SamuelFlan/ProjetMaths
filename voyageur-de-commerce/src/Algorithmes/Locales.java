@@ -8,7 +8,7 @@ import utilitaires.Ville;
 //métodes locales (utilise les tournées voisine)
 public class Locales {
 	//algorithme de descente locale
-	static Solution Descente(ArrayList<Ville> parcours) {
+	public static Solution Descente(ArrayList<Ville> parcours) {
 		//on créer une solution temporaire
 		Solution solution = new Solution(parcours);
 		//pour chaque ville on inverse cette ville avec une autre ville dans le parcours
