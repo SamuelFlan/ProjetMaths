@@ -40,17 +40,15 @@ public class Main {
 	    			break;
 	    		case 'h': // Heuristique
 	    			sol = Heuristique.ParAjoutDuPlusProche(villes);
-	    			sol = Locales.Descente(sol.getParcours());
-	    			
-	    			
+	    			break;
+	    		case 'l':
+	    			sol = Locales.Descente(villes);
 	    			break;
 	    }
 	    
 	    // Ecrire dns fichier
 	    String solS = fich.substring(0, fich.length() - 3) + "out3";
 	    i.EcrireSolutionDansFichier(sol, solS);
-	    
-	    
 	    
 	}
 }
