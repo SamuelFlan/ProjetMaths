@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
 import Algorithmes.Heuristique;
+import Algorithmes.Locales;
 import recuitSimulé.Recuit;
 import utilitaires.InOut;
 import utilitaires.Solution;
