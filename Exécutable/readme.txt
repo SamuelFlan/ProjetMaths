@@ -1,17 +1,19 @@
-$java -jar TSP.jar [type d'algorithme] [fichier d'entrée] ...
+$java -jar TSP.jar [type d'algorithme] [fichier d'entrÃ©e] ...
 
 1. type d'algorithme:
 h: heuristique
 l: descente locale
-r: recuit simulé
+r: recuit simulÃ©
+s: recuit simulÃ© avec raffinement
+d: descente locale avec raffinement
 
-2. fichier d'entrée
-chemin du fichier d'entrée
+2. fichier d'entrÃ©e
+chemin du fichier d'entrÃ©e
 ex: jeu-essai/20.in3
 
-3. Paramètres supplémentaires pour le recuit
-température et refroidissement
-ces paramètres sont facultatifs. Ils sont par défaut à:
+3. ParamÃ¨tres supplÃ©mentaires pour le recuit
+tempÃ©rature et refroidissement
+ces paramÃ¨tres sont facultatifs. Ils sont par dÃ©faut Ã :
 t = 1000
 r = 0.00001
 
@@ -20,8 +22,8 @@ EXEMPLE D'UTILISATION
 
 $java -jar TSP.jar r jeu-essai/20.in3 1000 0.00001
 
-Exécutera :
+ExÃ©cutera :
 recuit
  avec le fichier jeu-essai/20.in3
- une température initiale de 1000
+ une tempÃ©rature initiale de 1000
  un refroidissement de 0.00001
