@@ -29,12 +29,12 @@ public class Main {
 	    			String intValue = fich.replaceAll("[^0-9]", "");
 	    			int nbIt = Integer.parseInt(intValue);
 	    			if(args.length == 2) // Pas d'args supplémentaires 
-	    			{ sol = rec.recuitSimulé(villes, 1000, 0.00001); }
+	    			{ sol = rec.recuitSimulé(villes, 1000, 0.00001, true); }
 	    			else // Arguments supplémentaires
 	    			{
 	    				int temp = Integer.parseInt(args[2]);
 	    				double refr = Double.parseDouble(args[3]);
-	    				sol = rec.recuitSimulé(villes, temp, refr);
+	    				sol = rec.recuitSimulé(villes, temp, refr, true);
 	    			}
 	    			
 	    			break;
@@ -42,7 +42,25 @@ public class Main {
 	    			sol = Heuristique.ParAjoutDuPlusProche(villes);
 	    			break;
 	    		case 'l':
-	    			sol = Locales.Descente(villes);
+	    			 sol = Locales.Descente(villes);
+	    			break;
+	    		case 'd':
+	    			sol = Heuristique.ParAjoutDuPlusProche(villes);
+	    			sol = Locales.Descente(sol.getParcours());
+	    			break;
+	    		
+	    		case 's':
+	    			sol = Heuristique.ParAjoutDuPlusProche(villes);
+	    			Recuit rec1 = new Recuit();
+	    			// Nombre itérations
+	    			if(args.length == 2) // Pas d'args supplémentaires 
+	    			{ sol = rec1.recuitSimulé(sol.getParcours(), 1000, 0.00001, false); }
+	    			else // Arguments supplémentaires
+	    			{
+	    				int temp = Integer.parseInt(args[2]);
+	    				double refr = Double.parseDouble(args[3]);
+	    				sol = rec1.recuitSimulé(sol.getParcours(), temp, refr, false);
+	    			}
 	    			break;
 	    }
 	    

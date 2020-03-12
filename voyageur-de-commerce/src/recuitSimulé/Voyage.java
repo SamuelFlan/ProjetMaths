@@ -30,13 +30,13 @@ public class Voyage {
     }
 
     // Creates a random individual
-    public void generateIndividual() {
+    public void generateIndividual(boolean b) {
         // Loop through all our destination cities and add them to our voyage
         for (int cityIndex = 0; cityIndex < GestionVoyage.nbVille(); cityIndex++) {
           setVille(cityIndex, GestionVoyage.getVille(cityIndex));
         }
         // Randomly reorder the voyage
-        Collections.shuffle(voyage);
+        if (b == true) { Collections.shuffle(voyage);}
     }
 
     // Gets a city from the voyage

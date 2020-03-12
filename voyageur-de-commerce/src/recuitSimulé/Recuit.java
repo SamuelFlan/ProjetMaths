@@ -16,12 +16,12 @@ public class Recuit {
 		return Math.exp((energy - newEnergy) / temperature);
 	}
 
-	public static Solution recuitSimulé(ArrayList<Ville> voy, double temp, double refroidissement) {
+	public static Solution recuitSimulé(ArrayList<Ville> voy, double temp, double refroidissement, boolean b) {
 		Solution s;
 		Voyage currentSolution = new Voyage(voy);
 
 		// Initialize intial solution
-		currentSolution.generateIndividual();
+		currentSolution.generateIndividual(b);
 
 		System.out.println("Initial solution distance: " + currentSolution.getLongueur());
 
