@@ -51,36 +51,24 @@ public class Voyage {
         distance = 0;
     }
     
-    // Gets the total distance of the voyage
-    public int getTotalDistance(){
-    	if (distance == 0) {
-            int tourDistance = 0;
-            // Loop through our tour's cities
-            for (int cityIndex=0; cityIndex < voyageSize(); cityIndex++) {
-                // Get city we're traveling from
-                Ville fromCity = getVille(cityIndex);
-                // City we're traveling to
-                Ville destinationCity;
-                // Check we're not on our tour's last city, if we are set our
-                // tour's final destination city to our starting city
-                if(cityIndex+1 < voyageSize()){
-                    destinationCity = getVille(cityIndex+1);
-                }
-                else{
-                    destinationCity = getVille(0);
-                }                
-                // Get the distance between the two cities
-                tourDistance += Utility.distance(fromCity, destinationCity); 
-            }
-            distance = tourDistance;
-        }
-        return distance;
-    }
-
+ 
     // Get number of cities on our voyage
     public int voyageSize() {
         return voyage.size();
     }
+    
+	public double getLongueur() {
+		double longueur = 0;
+		int nombreDeVilles = voyage.size();
+		//pour chaque ville on ajoute la distance entre cette ville et la précedente à la longueur du parcours
+		for(int i = 1; i < nombreDeVilles; i++) {
+			longueur += Ville.CalculerDistance(voyage.get(i), voyage.get(i-1));
+		}
+		//on ajoute la distance entre la dernière et la première ville du parcours
+		longueur += Ville.CalculerDistance(voyage.get(nombreDeVilles - 1), voyage.get(0));
+		return longueur;
+	};
+    
     
     @Override
     public String toString() {

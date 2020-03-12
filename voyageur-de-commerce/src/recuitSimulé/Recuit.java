@@ -16,21 +16,21 @@ public class Recuit {
 		return Math.exp((energy - newEnergy) / temperature);
 	}
 
-	public static Solution recuitSimulé(ArrayList<Ville> voy, double temp, double refroidissement, int i) {
+	public static Solution recuitSimulé(ArrayList<Ville> voy, double temp, double refroidissement) {
 		Solution s;
 		Voyage currentSolution = new Voyage(voy);
 
 		// Initialize intial solution
 		currentSolution.generateIndividual();
 
-		System.out.println("Initial solution distance: " + currentSolution.getTotalDistance());
+		System.out.println("Initial solution distance: " + currentSolution.getLongueur());
 
 		// Set as current best
 		Voyage best = new Voyage(currentSolution.getVoyage());
 
 		// Loop until system has cooled
-		for (int n = 0; n < i; n++) {
-			if (temp > 1) {
+		
+			while (temp > 1) {
 				{
 
 					Voyage newSolution = new Voyage(currentSolution.getVoyage());
@@ -51,8 +51,8 @@ public class Recuit {
 					newSolution.setVille(tourPos1, citySwap2);
 
 					// Get energy of solutions
-					int currentDistance   = currentSolution.getTotalDistance();
-					int neighbourDistance = newSolution.getTotalDistance();
+					double currentDistance   = currentSolution.getLongueur();
+					double neighbourDistance = newSolution.getLongueur();
 
 					// Decide if we should accept the neighbour
 					double rand = Utility.randomDouble();
@@ -61,7 +61,7 @@ public class Recuit {
 					}
 
 					// Keep track of the best solution found
-					if (currentSolution.getTotalDistance() < best.getTotalDistance()) {
+					if (currentSolution.getLongueur() < best.getLongueur()) {
 						best = new Voyage(currentSolution.getVoyage());
 					}
 
@@ -71,12 +71,12 @@ public class Recuit {
 
 				
 				
-			}
+			
 		}
 		
 		s = new Solution(best.getVoyage());
 		
-		System.out.println("Final solution distance: " + best.getTotalDistance());
+		System.out.println("Final solution distance: " + best.getLongueur());
 		System.out.println("Tour: " + best);
 		
 		return s;

@@ -20,17 +20,17 @@ public class Utility {
 	/**
 	 * Calculates the acceptance probability
 	 * @param currentDistance the total distance of the current tour
-	 * @param newDistance the total distance of the new tour
+	 * @param neighbourDistance the total distance of the new tour
 	 * @param temperature the current temperature
 	 * @return value the probability of whether to accept the new tour
 	 */
-	public static double acceptanceProbability(int currentDistance, int newDistance, double temperature) {
+	public static double acceptanceProbability(double currentDistance, double neighbourDistance, double temperature) {
 		// If the new solution is better, accept it
-		if (newDistance < currentDistance) {
+		if (neighbourDistance < currentDistance) {
 			return 1.0;
 		}
 		// If the new solution is worse, calculate an acceptance probability
-		return Math.exp((currentDistance - newDistance) / temperature);
+		return Math.exp((currentDistance - neighbourDistance) / temperature);
 	}
 
 	/**
