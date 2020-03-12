@@ -1,7 +1,8 @@
 $java -jar TSP.jar [type d'algorithme] [fichier d'entrée] ...
 
 1. type d'algorithme:
-h: heuristique + descente locale
+h: heuristique
+l: descente locale
 r: recuit simulé
 
 2. fichier d'entrée
